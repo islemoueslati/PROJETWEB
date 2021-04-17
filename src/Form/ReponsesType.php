@@ -17,7 +17,7 @@ class ReponsesType extends AbstractType
         $builder
             ->add('rep')
             ->add('reps_etud',EntityType::class,['class'=>User::class,'choice_label'=>'user_name'])
-            ->add('question_de_reponses',EntityType::class,['class'=>Questions::class,'choice_label'=>'quest'])
+            ->add('question_des_reponses',EntityType::class,['class'=>Questions::class,'choice_label'=>'quest'])
         ;
     }
 
