@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 17 avr. 2021 à 03:39
+-- Généré le : sam. 17 avr. 2021 à 21:53
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.15
 
@@ -54,9 +54,9 @@ CREATE TABLE `bilan` (
 --
 
 INSERT INTO `bilan` (`id`, `titre_descriptif`, `index_periode`) VALUES
-(1, 'Debut de Stage', 1),
-(2, 'Milieu de Stage', 2),
-(3, 'Fin de Stage', 3);
+(7, 'Debut de Stage', 1),
+(8, 'Milieu de Stage', 2),
+(9, 'Fin de Stage', 3);
 
 -- --------------------------------------------------------
 
@@ -74,43 +74,43 @@ CREATE TABLE `bilan_questions` (
 --
 
 INSERT INTO `bilan_questions` (`bilan_id`, `questions_id`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
-(1, 7),
-(1, 8),
-(1, 10),
-(1, 11),
-(1, 12),
-(1, 13),
-(2, 1),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 6),
-(2, 7),
-(2, 14),
-(2, 15),
-(2, 16),
-(2, 17),
-(2, 18),
-(2, 19),
-(3, 1),
-(3, 2),
-(3, 3),
-(3, 4),
-(3, 5),
-(3, 6),
-(3, 7),
-(3, 20),
-(3, 21),
-(3, 22),
-(3, 23),
-(3, 24);
+(7, 49),
+(7, 50),
+(7, 51),
+(7, 52),
+(7, 53),
+(7, 54),
+(7, 55),
+(7, 56),
+(7, 58),
+(7, 59),
+(7, 60),
+(7, 61),
+(8, 49),
+(8, 50),
+(8, 51),
+(8, 52),
+(8, 53),
+(8, 54),
+(8, 55),
+(8, 62),
+(8, 63),
+(8, 64),
+(8, 65),
+(8, 66),
+(8, 67),
+(9, 49),
+(9, 50),
+(9, 51),
+(9, 52),
+(9, 53),
+(9, 54),
+(9, 55),
+(9, 68),
+(9, 69),
+(9, 70),
+(9, 71),
+(9, 72);
 
 -- --------------------------------------------------------
 
@@ -144,8 +144,7 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20210415154320', '2021-04-15 17:43:41', 30073),
-('DoctrineMigrations\\Version20210415154735', '2021-04-15 17:47:58', 1846);
+('DoctrineMigrations\\Version20210417194414', '2021-04-17 21:44:34', 38428);
 
 -- --------------------------------------------------------
 
@@ -269,30 +268,30 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `quest`, `index_periode`) VALUES
-(1, 'Évaluez votre capacité à travailler en équipe ?', 0),
-(2, 'Évaluez votre capacité à travailler en équipe ?', 0),
-(3, 'Évaluez votre capacité à être autonome ?', 0),
-(4, 'Évaluez votre capacité à être résilient ?', 0),
-(5, 'Évaluez votre capacité à organiser votre travail dans les délais ?', 0),
-(6, 'Évaluez-vous votre capacité à prendre des initiatives ?', 0),
-(7, 'Évaluez-vous votre capacité à réaliser un travail de qualité ?', 0),
-(8, 'Qu’est-ce qui vous plaît et vous motive dans votre stage?', 1),
-(9, 'Décrivez une situation de travail marquante que vous avez vécu.', 1),
-(10, 'Avez-vous vécu pendant votre stage une situation difficile ou problématique?', 1),
-(11, 'Que retirez-vous comme apprentissages depuis le début de votre stage ?', 1),
-(12, 'Comment gérez-vous les délais dans votre travail?', 1),
-(13, 'De quelle(s) manière(s) utilisez-vous vos capacités dans votre stage? ', 1),
-(14, 'Vos missions ont-elles évolué depuis le début de votre stage?', 2),
-(15, 'Citez une réalisation dont vous êtes fier/ère :', 2),
-(16, 'Comment avez-vous procédé pour mener à bien cette mission?', 2),
-(17, 'Quels ont été vos défis pendant votre stage?', 2),
-(18, 'Comment avez-vous réussi à surmonter vos reculs?', 2),
-(19, 'Comment votre stage confirme-t-il votre projet professionnel ?', 2),
-(20, 'De manière générale, comment vos missions ont-elles evolué?', 3),
-(21, 'Quelles ont été vos meilleures réalisations pendant votre stage?', 3),
-(22, 'Quels apprentissages pouvez-vous en tirer ? ', 3),
-(23, 'Quelles compétences avez-vous développé pour mener à bien vos missions? ', 3),
-(24, 'Quel bilan faites-vous de votre projet professionnel à la fin de votre stage ?', 3);
+(49, 'Évaluez votre capacité à travailler en équipe ?', 0),
+(50, 'Évaluez votre capacité à travailler en équipe ?', 0),
+(51, 'Évaluez votre capacité à être autonome ?', 0),
+(52, 'Évaluez votre capacité à être résilient ?', 0),
+(53, 'Évaluez votre capacité à organiser votre travail dans les délais ?', 0),
+(54, 'Évaluez-vous votre capacité à prendre des initiatives ?', 0),
+(55, 'Évaluez-vous votre capacité à réaliser un travail de qualité ?', 0),
+(56, 'Qu’est-ce qui vous plaît et vous motive dans votre stage?', 1),
+(57, 'Décrivez une situation de travail marquante que vous avez vécu.', 1),
+(58, 'Avez-vous vécu pendant votre stage une situation difficile ou problématique?', 1),
+(59, 'Que retirez-vous comme apprentissages depuis le début de votre stage ?', 1),
+(60, 'Comment gérez-vous les délais dans votre travail?', 1),
+(61, 'De quelle(s) manière(s) utilisez-vous vos capacités dans votre stage? ', 1),
+(62, 'Vos missions ont-elles évolué depuis le début de votre stage?', 2),
+(63, 'Citez une réalisation dont vous êtes fier/ère :', 2),
+(64, 'Comment avez-vous procédé pour mener à bien cette mission?', 2),
+(65, 'Quels ont été vos défis pendant votre stage?', 2),
+(66, 'Comment avez-vous réussi à surmonter vos reculs?', 2),
+(67, 'Comment votre stage confirme-t-il votre projet professionnel ?', 2),
+(68, 'De manière générale, comment vos missions ont-elles evolué?', 3),
+(69, 'Quelles ont été vos meilleures réalisations pendant votre stage?', 3),
+(70, 'Quels apprentissages pouvez-vous en tirer ? ', 3),
+(71, 'Quelles compétences avez-vous développé pour mener à bien vos missions? ', 3),
+(72, 'Quel bilan faites-vous de votre projet professionnel à la fin de votre stage ?', 3);
 
 -- --------------------------------------------------------
 
@@ -342,16 +341,9 @@ CREATE TABLE `rendez_vous_user` (
 CREATE TABLE `reponses` (
   `id` int(11) NOT NULL,
   `reps_etud_id` int(11) NOT NULL,
-  `rep` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reponses_de_question_id` int(11) NOT NULL
+  `question_des_reponses_id` int(11) NOT NULL,
+  `rep` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `reponses`
---
-
-INSERT INTO `reponses` (`id`, `reps_etud_id`, `rep`, `reponses_de_question_id`) VALUES
-(1, 1, 'okokokokokoko', 2);
 
 -- --------------------------------------------------------
 
@@ -384,13 +376,6 @@ CREATE TABLE `user` (
   `addresse` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `debut_stage` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `user`
---
-
-INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `role`, `addresse`, `debut_stage`) VALUES
-(1, 'islem oueslati', 'islemoueslati@esprit.tn', '123452', 'etudiant', 'marsa', '2021-04-20');
 
 --
 -- Index pour les tables déchargées
@@ -510,7 +495,7 @@ ALTER TABLE `rendez_vous_user`
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IDX_1E512EC6740D47C0` (`reps_etud_id`),
-  ADD KEY `IDX_1E512EC6216C6D63` (`reponses_de_question_id`);
+  ADD KEY `IDX_1E512EC615388B47` (`question_des_reponses_id`);
 
 --
 -- Index pour la table `soutenance`
@@ -541,7 +526,7 @@ ALTER TABLE `affectation`
 -- AUTO_INCREMENT pour la table `bilan`
 --
 ALTER TABLE `bilan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `compte_rendu`
@@ -589,7 +574,7 @@ ALTER TABLE `proposition_projet`
 -- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT pour la table `rapport_final`
@@ -607,7 +592,7 @@ ALTER TABLE `rendez_vous`
 -- AUTO_INCREMENT pour la table `reponses`
 --
 ALTER TABLE `reponses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `soutenance`
@@ -619,7 +604,7 @@ ALTER TABLE `soutenance`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -702,7 +687,7 @@ ALTER TABLE `rendez_vous_user`
 -- Contraintes pour la table `reponses`
 --
 ALTER TABLE `reponses`
-  ADD CONSTRAINT `FK_1E512EC6216C6D63` FOREIGN KEY (`reponses_de_question_id`) REFERENCES `questions` (`id`),
+  ADD CONSTRAINT `FK_1E512EC615388B47` FOREIGN KEY (`question_des_reponses_id`) REFERENCES `questions` (`id`),
   ADD CONSTRAINT `FK_1E512EC6740D47C0` FOREIGN KEY (`reps_etud_id`) REFERENCES `user` (`id`);
 
 --
