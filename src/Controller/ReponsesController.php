@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Bilan;
-use App\Entity\Questions;
 use App\Entity\Reponses;
 use App\Form\ReponsesType;
 use App\Repository\ReponsesRepository;
@@ -32,7 +30,6 @@ class ReponsesController extends AbstractController
      */
     public function new(Request $request): Response
     {
-
         $reponse = new Reponses();
         $form = $this->createForm(ReponsesType::class, $reponse);
         $form->handleRequest($request);

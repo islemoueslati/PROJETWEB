@@ -30,10 +30,18 @@ class Reponses
     private $reps_etud;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Questions::class, inversedBy="question_reponses")
+     * @ORM\ManyToOne(targetEntity=Questions::class, inversedBy="lesreponses_dequestion")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Reponses_de_question;
+    private $repondu_sur_question;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Questions::class, inversedBy="reponses")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $question_de_reponses;
+
+
 
 
 
@@ -68,14 +76,26 @@ class Reponses
         return $this;
     }
 
-    public function getReponsesDeQuestion(): ?Questions
+    public function getReponduSurQuestion(): ?Questions
     {
-        return $this->Reponses_de_question;
+        return $this->repondu_sur_question;
     }
 
-    public function setReponsesDeQuestion(?Questions $Reponses_de_question): self
+    public function setReponduSurQuestion(?Questions $repondu_sur_question): self
     {
-        $this->Reponses_de_question = $Reponses_de_question;
+        $this->repondu_sur_question = $repondu_sur_question;
+
+        return $this;
+    }
+
+    public function getQuestionDeReponses(): ?Questions
+    {
+        return $this->question_de_reponses;
+    }
+
+    public function setQuestionDeReponses(?Questions $question_de_reponses): self
+    {
+        $this->question_de_reponses = $question_de_reponses;
 
         return $this;
     }

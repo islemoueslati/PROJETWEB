@@ -35,9 +35,16 @@ class Questions
     private $questions_bilans;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="Reponses_de_question")
+     * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="repondu_sur_question")
      */
-    private $question_reponses;
+    private $lesreponses_dequestion;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="question_de_reponses")
+     */
+    private $reponses;
+
+
 
 
 
@@ -47,6 +54,8 @@ class Questions
         $this->questions_bilans = new ArrayCollection();
         $this->reps_question = new ArrayCollection();
         $this->question_reponses = new ArrayCollection();
+        $this->lesreponses_dequestion = new ArrayCollection();
+        $this->reponses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,32 +117,64 @@ class Questions
     /**
      * @return Collection|Reponses[]
      */
-    public function getQuestionReponses(): Collection
+    public function getLesreponsesDequestion(): Collection
     {
-        return $this->question_reponses;
+        return $this->lesreponses_dequestion;
     }
 
-    public function addQuestionReponse(Reponses $questionReponse): self
+    public function addLesreponsesDequestion(Reponses $lesreponsesDequestion): self
     {
-        if (!$this->question_reponses->contains($questionReponse)) {
-            $this->question_reponses[] = $questionReponse;
-            $questionReponse->setReponsesDeQuestion($this);
+        if (!$this->lesreponses_dequestion->contains($lesreponsesDequestion)) {
+            $this->lesreponses_dequestion[] = $lesreponsesDequestion;
+            $lesreponsesDequestion->setReponduSurQuestion($this);
         }
 
         return $this;
     }
 
-    public function removeQuestionReponse(Reponses $questionReponse): self
+    public function removeLesreponsesDequestion(Reponses $lesreponsesDequestion): self
     {
-        if ($this->question_reponses->removeElement($questionReponse)) {
+        if ($this->lesreponses_dequestion->removeElement($lesreponsesDequestion)) {
             // set the owning side to null (unless already changed)
-            if ($questionReponse->getReponsesDeQuestion() === $this) {
-                $questionReponse->setReponsesDeQuestion(null);
+            if ($lesreponsesDequestion->getReponduSurQuestion() === $this) {
+                $lesreponsesDequestion->setReponduSurQuestion(null);
             }
         }
 
         return $this;
     }
+
+    /**
+     * @return Collection|Reponses[]
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponses $reponse): self
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses[] = $reponse;
+            $reponse->setQuestionDeReponses($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponses $reponse): self
+    {
+        if ($this->reponses->removeElement($reponse)) {
+            // set the owning side to null (unless already changed)
+            if ($reponse->getQuestionDeReponses() === $this) {
+                $reponse->setQuestionDeReponses(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
 
 

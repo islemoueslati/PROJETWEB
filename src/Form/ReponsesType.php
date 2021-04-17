@@ -15,10 +15,10 @@ class ReponsesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
-            ->add('reps_etud',EntityType::class,['class'=>User::class,'choice_label'=>'user_name'])
-            ->add('Reponses_de_question',EntityType::class,['class'=>Questions::class,'choice_label'=>'quest'])
             ->add('rep')
+            ->add('reps_etud',EntityType::class,['class'=>User::class,'choice_label'=>'user_name'])
+            ->add('repondu_sur_question')
+            ->add('question_de_reponses',EntityType::class,['class'=>Questions::class,'choice_label'=>'quest'])
         ;
     }
 

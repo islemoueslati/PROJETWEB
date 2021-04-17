@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block body %}
+    {% for question in reponses.Reponses_de_question_id %}
+        <div class="text-justify"><h4 class="text-muted">•{{ question.quest }}</h4></div><br>
+    {% endfor %}
+{% endblock %}

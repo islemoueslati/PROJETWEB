@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Bilan;
 use App\Entity\Questions;
+use App\Entity\Reponses;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -133,6 +134,12 @@ class BilanFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
+        ////Reppooonnnses
+
+
         $manager->flush();
     }
+
+
+
 }
