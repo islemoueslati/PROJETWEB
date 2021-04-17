@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210417191211 extends AbstractMigration
+final class Version20210417194414 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -31,7 +31,7 @@ final class Version20210417191211 extends AbstractMigration
         $this->addSql('CREATE TABLE proposition_projet (id INT AUTO_INCREMENT NOT NULL, etudiantpp_id INT NOT NULL, nom_sujet VARCHAR(255) NOT NULL, cahier_charge VARCHAR(255) NOT NULL, validationproposition VARCHAR(255) NOT NULL, description VARCHAR(1000) NOT NULL, commentaireprop VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_D6781ECFC0CB7C3B (etudiantpp_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE rapport_final (id INT AUTO_INCREMENT NOT NULL, rapp_etudiant_id INT NOT NULL, enc_ac_correction_id INT NOT NULL, plagiat DOUBLE PRECISION NOT NULL, fichier VARCHAR(1000) NOT NULL, UNIQUE INDEX UNIQ_CCE74518E7A149D7 (rapp_etudiant_id), INDEX IDX_CCE745185B5DEF45 (enc_ac_correction_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE rendez_vous_user (rendez_vous_id INT NOT NULL, user_id INT NOT NULL, INDEX IDX_7AB596891EF7EAA (rendez_vous_id), INDEX IDX_7AB5968A76ED395 (user_id), PRIMARY KEY(rendez_vous_id, user_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE reponses (id INT AUTO_INCREMENT NOT NULL, reps_etud_id INT NOT NULL, repondu_sur_question_id INT NOT NULL, rep VARCHAR(255) NOT NULL, INDEX IDX_1E512EC6740D47C0 (reps_etud_id), INDEX IDX_1E512EC6B654E035 (repondu_sur_question_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE reponses (id INT AUTO_INCREMENT NOT NULL, reps_etud_id INT NOT NULL, question_des_reponses_id INT NOT NULL, rep VARCHAR(255) NOT NULL, INDEX IDX_1E512EC6740D47C0 (reps_etud_id), INDEX IDX_1E512EC615388B47 (question_des_reponses_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE soutenance (id INT AUTO_INCREMENT NOT NULL, soutenancers_id INT NOT NULL, sout_enc_ac_id INT NOT NULL, sout_etud_id INT NOT NULL, president VARCHAR(255) NOT NULL, date_soutenance DATE NOT NULL, salle VARCHAR(255) NOT NULL, INDEX IDX_4D59FF6E7B07BC48 (soutenancers_id), INDEX IDX_4D59FF6E54E96A68 (sout_enc_ac_id), UNIQUE INDEX UNIQ_4D59FF6E8F4FF5A6 (sout_etud_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, user_name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, role VARCHAR(255) NOT NULL, addresse VARCHAR(255) NOT NULL, debut_stage DATE DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE affectation ADD CONSTRAINT FK_F4DD61D3C5F87C54 FOREIGN KEY (id_etudiant_id) REFERENCES user (id)');
@@ -53,7 +53,7 @@ final class Version20210417191211 extends AbstractMigration
         $this->addSql('ALTER TABLE rendez_vous_user ADD CONSTRAINT FK_7AB596891EF7EAA FOREIGN KEY (rendez_vous_id) REFERENCES rendez_vous (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE rendez_vous_user ADD CONSTRAINT FK_7AB5968A76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE reponses ADD CONSTRAINT FK_1E512EC6740D47C0 FOREIGN KEY (reps_etud_id) REFERENCES user (id)');
-        $this->addSql('ALTER TABLE reponses ADD CONSTRAINT FK_1E512EC6B654E035 FOREIGN KEY (repondu_sur_question_id) REFERENCES questions (id)');
+        $this->addSql('ALTER TABLE reponses ADD CONSTRAINT FK_1E512EC615388B47 FOREIGN KEY (question_des_reponses_id) REFERENCES questions (id)');
         $this->addSql('ALTER TABLE soutenance ADD CONSTRAINT FK_4D59FF6E7B07BC48 FOREIGN KEY (soutenancers_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE soutenance ADD CONSTRAINT FK_4D59FF6E54E96A68 FOREIGN KEY (sout_enc_ac_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE soutenance ADD CONSTRAINT FK_4D59FF6E8F4FF5A6 FOREIGN KEY (sout_etud_id) REFERENCES user (id)');

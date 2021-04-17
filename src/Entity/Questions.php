@@ -34,15 +34,17 @@ class Questions
      */
     private $questions_bilans;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="repondu_sur_question")
-     */
-    private $lesreponses_dequestion;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="question_de_reponses")
      */
     private $reponses;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="question_des_reponses")
+     */
+    private $lesreponses_dequestion;
 
 
 
@@ -126,7 +128,7 @@ class Questions
     {
         if (!$this->lesreponses_dequestion->contains($lesreponsesDequestion)) {
             $this->lesreponses_dequestion[] = $lesreponsesDequestion;
-            $lesreponsesDequestion->setReponduSurQuestion($this);
+            $lesreponsesDequestion->setQuestionDesReponses($this);
         }
 
         return $this;
@@ -136,44 +138,13 @@ class Questions
     {
         if ($this->lesreponses_dequestion->removeElement($lesreponsesDequestion)) {
             // set the owning side to null (unless already changed)
-            if ($lesreponsesDequestion->getReponduSurQuestion() === $this) {
-                $lesreponsesDequestion->setReponduSurQuestion(null);
+            if ($lesreponsesDequestion->getQuestionDesReponses() === $this) {
+                $lesreponsesDequestion->setQuestionDesReponses(null);
             }
         }
 
         return $this;
     }
-
-    /**
-     * @return Collection|Reponses[]
-     */
-    public function getReponses(): Collection
-    {
-        return $this->reponses;
-    }
-
-    public function addReponse(Reponses $reponse): self
-    {
-        if (!$this->reponses->contains($reponse)) {
-            $this->reponses[] = $reponse;
-            $reponse->setQuestionDeReponses($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReponse(Reponses $reponse): self
-    {
-        if ($this->reponses->removeElement($reponse)) {
-            // set the owning side to null (unless already changed)
-            if ($reponse->getQuestionDeReponses() === $this) {
-                $reponse->setQuestionDeReponses(null);
-            }
-        }
-
-        return $this;
-    }
-
 
 
 
