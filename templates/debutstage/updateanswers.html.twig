@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reponses{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Create new Reponses</h1>
+        <form name="reponses" method="post" action={{ "/reponses/new" }}>
+            {% for question in questions %}
+                {% for reponse in reponses %}
+                    {% if question.IndexPeriode==0 or question.IndexPeriode==1 %}
+                        <div class="form-group row">
+                            <label>{{ question.quest }}</label>
+                            <input type="text" class="form-control" name={{ question.id }} value={{ reponse.rep }}>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}

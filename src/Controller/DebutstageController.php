@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Bilan;
 use App\Entity\Reponses;
+use App\Form\ReponsesType;
 use App\Repository\QuestionsRepository;
+use App\Repository\ReponsesRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -53,4 +56,27 @@ class DebutstageController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/modifierdebut", name="modifier_debut", methods={"GET","POST"})
+     */
+    public function edit(Request $request,
+                        QuestionsRepository $questionsRepository,ReponsesRepository $reponsesRepository,
+                        EntityManagerInterface $em) : Response {
+        if ($request->isMethod('POST')) {
+            foreach($request->request as $idQuestion=>$responseUser) {
+                foreach ($request->request as $idReponse => $reponse) {
+                    $question = $questionsRepository->findOneBy(["id" => $idQuestion]);
+                    $reponse= $reponsesRepository->findOneBy(["id"=>$idReponse]);
+                    $response = new Reponses($reponse);
+                    $response->setRep($responseUser);
+                    $response->setQuestionDesReponses($question);
+                    $em->persist($response);
+            }
+            }
+            $em->flush();
+        }
+        return $this->render('debutstage/updateanswers.html.twig', [
+            'questions' => $questionsRepository->findAll(),'reponses' =>$reponsesRepository->findAll()
+        ]);
+    }
 }

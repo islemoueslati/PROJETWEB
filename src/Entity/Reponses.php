@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ReponsesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ReponsesRepository::class)
@@ -18,14 +20,15 @@ class Reponses
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $rep;
 
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="etud_reps")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $reps_etud;
 
