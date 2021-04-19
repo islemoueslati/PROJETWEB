@@ -13,9 +13,7 @@ class BilanFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         //Les questions
-        $Q01=new Questions();
-        $Q01->setIndexPeriode(0)->setQuest("Évaluez votre capacité à travailler en équipe ?");
-        $manager->persist($Q01);
+
 
         $Q02=new Questions();
         $Q02->setIndexPeriode(0)->setQuest("Évaluez votre capacité à travailler en équipe ?");
@@ -115,20 +113,20 @@ class BilanFixtures extends Fixture
         $B1=new Bilan();
         $B1->setIndexPeriode(1)->setTitreDescriptif("Debut de Stage")
             ->addQuestionsBilan($Q11)->addQuestionsBilan($Q12)->addQuestionsBilan($Q13)->addQuestionsBilan($Q14)->addQuestionsBilan($Q15)
-            ->addQuestionsBilan($Q01)->addQuestionsBilan($Q02)->addQuestionsBilan($Q03)->addQuestionsBilan($Q04)->addQuestionsBilan($Q05)
+            ->addQuestionsBilan($Q02)->addQuestionsBilan($Q03)->addQuestionsBilan($Q04)->addQuestionsBilan($Q05)
             ->addQuestionsBilan($Q06)->addQuestionsBilan($Q07);
         $manager->persist($B1);
 
         $B2=new Bilan();
         $B2->setIndexPeriode(2)->setTitreDescriptif("Milieu de Stage")
             ->addQuestionsBilan($Q21)->addQuestionsBilan($Q22)->addQuestionsBilan($Q23)->addQuestionsBilan($Q24)->addQuestionsBilan($Q25)
-            ->addQuestionsBilan($Q26)->addQuestionsBilan($Q01)->addQuestionsBilan($Q02)->addQuestionsBilan($Q03)->addQuestionsBilan($Q04)->addQuestionsBilan($Q05)
+            ->addQuestionsBilan($Q26)->addQuestionsBilan($Q02)->addQuestionsBilan($Q03)->addQuestionsBilan($Q04)->addQuestionsBilan($Q05)
             ->addQuestionsBilan($Q06)->addQuestionsBilan($Q07);
         $manager->persist($B2);
         $B3=new Bilan();
         $B3->setIndexPeriode(3)->setTitreDescriptif("Fin de Stage")
             ->addQuestionsBilan($Q31)->addQuestionsBilan($Q32)->addQuestionsBilan($Q33)->addQuestionsBilan($Q34)->addQuestionsBilan($Q35)
-            ->addQuestionsBilan($Q01)->addQuestionsBilan($Q02)->addQuestionsBilan($Q03)->addQuestionsBilan($Q04)->addQuestionsBilan($Q05)
+            ->addQuestionsBilan($Q02)->addQuestionsBilan($Q03)->addQuestionsBilan($Q04)->addQuestionsBilan($Q05)
             ->addQuestionsBilan($Q06)->addQuestionsBilan($Q07);
         $manager->persist($B3);
         // $product = new Product();
