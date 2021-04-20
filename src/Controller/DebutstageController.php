@@ -50,6 +50,7 @@ class DebutstageController extends AbstractController
                 $em->persist($response);
             }
             $em->flush();
+            return $this->redirectToRoute('debutstage');
         }
         return $this->render('debutstage/answerquestions.html.twig', [
             'questions' => $questionsRepository->findAll()
@@ -74,7 +75,6 @@ class DebutstageController extends AbstractController
 
             return $this->redirectToRoute('debutstage');
 
-//
         }
         return $this->render('debutstage/updateanswers.html.twig', [
             'questions' => $questionsRepository->findAll(),'reponses' =>$reponsesRepository->findAll()

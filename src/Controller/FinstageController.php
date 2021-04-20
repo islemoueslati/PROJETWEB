@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Bilan;
 use App\Entity\Reponses;
 use App\Repository\QuestionsRepository;
+use App\Repository\ReponsesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,9 +47,33 @@ class FinstageController extends AbstractController
                 $em->persist($response);
             }
             $em->flush();
+            return $this->redirectToRoute('finstage');
         }
         return $this->render('finstage/answerquestions.html.twig', [
             'questions' => $questionsRepository->findAll()
+        ]);
+    }
+    /**
+     * @Route("/modifierfin", name="modifier_fin", methods={"GET","POST"})
+     */
+    public function edit(Request $request,
+                         QuestionsRepository $questionsRepository,
+                         ReponsesRepository $reponsesRepository,
+                         EntityManagerInterface $em) : Response {
+        dump($request);
+        if ($request->isMethod('POST')) {
+            foreach ($request->request as $idReponse => $reponseText) {
+                $reponse= $reponsesRepository->find($idReponse);
+                $reponse->setRep($reponseText);
+                $em->flush();
+
+            }
+
+            return $this->redirectToRoute('finstage');
+
+        }
+        return $this->render('finstage/updateanswers.html.twig', [
+            'questions' => $questionsRepository->findAll(),'reponses' =>$reponsesRepository->findAll()
         ]);
     }
 }
