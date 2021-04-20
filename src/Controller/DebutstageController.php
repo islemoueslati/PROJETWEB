@@ -60,20 +60,21 @@ class DebutstageController extends AbstractController
      * @Route("/modifierdebut", name="modifier_debut", methods={"GET","POST"})
      */
     public function edit(Request $request,
-                        QuestionsRepository $questionsRepository,ReponsesRepository $reponsesRepository,
-                        EntityManagerInterface $em) : Response {
+                         QuestionsRepository $questionsRepository,
+                         ReponsesRepository $reponsesRepository,
+                         EntityManagerInterface $em) : Response {
+        dump($request);
         if ($request->isMethod('POST')) {
-            foreach($request->request as $idQuestion=>$responseUser) {
-                foreach ($request->request as $idReponse => $reponse) {
-                    $question = $questionsRepository->findOneBy(["id" => $idQuestion]);
-                    $reponse= $reponsesRepository->findOneBy(["id"=>$idReponse]);
-                    $response = new Reponses($reponse);
-                    $response->setRep($responseUser);
-                    $response->setQuestionDesReponses($question);
-                    $em->persist($response);
+            foreach ($request->request as $idReponse => $reponseText) {
+                $reponse= $reponsesRepository->find($idReponse);
+                $reponse->setRep($reponseText);
+                $em->flush();
+
             }
-            }
-            $em->flush();
+
+            return $this->redirectToRoute('debutstage');
+
+//
         }
         return $this->render('debutstage/updateanswers.html.twig', [
             'questions' => $questionsRepository->findAll(),'reponses' =>$reponsesRepository->findAll()
