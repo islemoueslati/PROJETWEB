@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionsController extends AbstractController
 {
     /**
-     * @Route("/", name="questions_index", methods={"GET"})
+     * @Route("/menuquestions", name="menu_questions", methods={"GET"})
      */
     public function index(QuestionsRepository $questionsRepository): Response
     {

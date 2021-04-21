@@ -1,5 +1,35 @@
+{{ form_start(form) }}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-    {{ form_end(form) }}
+<table class="table">
+    <tbody>
+    <tr>
+        <th>
+            <label for="">Question</label>
+        </th>
+        <td>
+            {{ form_widget(form.quest) }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="">Index Periode</label>
+        </th>
+        <td>
+            {{ form_widget(form.IndexPeriode) }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="">Bilan periodique</label>
+        </th>
+        <td>
+            {{ form_widget(form.questions_bilans) }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+{{ form_widget(form) }}
+<button type="button" class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
