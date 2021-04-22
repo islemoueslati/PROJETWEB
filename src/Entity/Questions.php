@@ -28,7 +28,7 @@ class Questions
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotNull
+     * @Assert\LessThan(4)(message=Veuillez choisir 0 , 1 ,2 ou 3)
      */
     private $IndexPeriode;
 

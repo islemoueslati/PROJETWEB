@@ -11,10 +11,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search"
-                                                                                                         class="form-control form-control-sm"
-                                                                                                         aria-controls="dataTable"
-                                                                                                         placeholder="Search"></label>
+                        <div class="text-md-right dataTables_filter" id="dataTable_filter"><label>
+                                <input type="search" class="form-control form-control-sm" aria-controls="dataTable"
+                                       placeholder="Search"></label>
                         </div>
                     </div>
                 </div>
@@ -28,24 +27,16 @@
                             <th>Fin de Stage</th>
                         </tr>
                         </thead>
+                        {% for user in users %}
                         <tbody>
-
                         <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
+                            <td>{{ user.getUserName }}</td>
+                            <td><span class="badge badge-success">Rempli</span></td>
+                            <td><span class="badge badge-danger">Non Rempli</span></td>
+                            <td><span class="badge badge-success">Non Rempli </span></td>
                         </tr>
-
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                            <td>61</td>
-
-                        </tr>
-
                         </tbody>
+                        {% endfor %}
                     </table>
                 </div>
                 <div class="row">
@@ -57,5 +48,9 @@
             </div>
         </div>
     </div>
+
+        {% for user in users %}
+
+        {% endfor %}
 
 {% endblock %}
