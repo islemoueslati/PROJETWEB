@@ -1,4 +1,4 @@
-{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+{{ form_start(form) }}
 <table class="table">
     <tbody>
     <tr>
@@ -17,18 +17,10 @@
             {{ form_widget(form.IndexPeriode) }}
         </td>
     </tr>
-    <tr>
-        <th>
-            <label for="">Bilan periodique</label>
-        </th>
-        <td>
-            {{ form_widget(form.questions_bilans) }}
-        </td>
-    </tr>
     </tbody>
 </table>
 
 
 {{ form_widget(form) }}
-<button type="button" class="btn btn-success">{{ button_label|default('Save') }}</button>
+<button type="submit" class="btn btn-success">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
