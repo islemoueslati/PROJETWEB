@@ -38,6 +38,11 @@ class Reponses
      */
     private $question_des_reponses;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $IndexPeriode;
+
 
     public function getId(): ?int
     {
@@ -78,6 +83,18 @@ class Reponses
     public function setQuestionDesReponses(?Questions $question_des_reponses): self
     {
         $this->question_des_reponses = $question_des_reponses;
+
+        return $this;
+    }
+
+    public function getIndexPeriode(): ?int
+    {
+        return $this->IndexPeriode;
+    }
+
+    public function setIndexPeriode(int $IndexPeriode): self
+    {
+        $this->IndexPeriode = $IndexPeriode;
 
         return $this;
     }

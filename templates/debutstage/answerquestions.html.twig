@@ -18,6 +18,13 @@
                     <div class="form-group row">
                         <label>{{ question.quest }}</label>
                         <input type="text" class="form-control" name={{ question.id }}>
+                        {% for reponse in reponses %}
+                          {% if question.IndexPeriode==0 %}
+                              <input type="hidden" id={{ reponse.id }} name={{ reponse.IndexPeriode }} value="0">
+                          {% else %}
+                              <input type="hidden" id={{ reponse.id }} name={{ reponse.IndexPeriode }} value="1">
+                          {% endif %}
+                        {% endfor %}
                     </div>
                 {% endif %}
             {% endfor %}
