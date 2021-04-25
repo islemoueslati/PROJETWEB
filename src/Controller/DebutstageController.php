@@ -38,7 +38,7 @@ class DebutstageController extends AbstractController
      * @Route("/bilandebut", name="bilan_debut", methods={"GET","POST"})
      */
     public function new(Request $request,
-                        QuestionsRepository $questionsRepository,ReponsesRepository $reponsesRepository,
+                        QuestionsRepository $questionsRepository,
                         EntityManagerInterface $em
     ) : Response {
         if ($request->isMethod('POST')) {
@@ -53,7 +53,7 @@ class DebutstageController extends AbstractController
             return $this->redirectToRoute('debutstage');
         }
         return $this->render('debutstage/answerquestions.html.twig', [
-            'questions' => $questionsRepository->findAll(),'reponses'=>$reponsesRepository->findAll(),]);
+            'questions' => $questionsRepository->findAll(),]);
     }
 
     /**
